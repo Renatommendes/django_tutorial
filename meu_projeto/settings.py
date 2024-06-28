@@ -128,6 +128,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+import environ
 
 load_dotenv()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
