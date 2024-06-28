@@ -1,14 +1,12 @@
-# mapapp/views.py
 from django.shortcuts import render
-import requests
-from math import radians, sin, cos, sqrt, atan2
-from django.shortcuts import render
-from .models import Marker
-
+from .models import Estacao
+from django.conf import settings
 
 def map_view(request):
-    markers = Marker.objects.all()
+    estacoes = Estacao.objects.all()  # ou qualquer outra lógica para pegar as estações
     return render(request, 'mapapp/map.html', {
-        'markers': markers,
-        'api_key': 'AIzaSyCKyeLfN3GjEiDsYafdQGymklU-7VcKC6I',
+        'estacoes': estacoes,
+        'api_key': settings.GOOGLE_MAPS_API_KEY
     })
+
+
